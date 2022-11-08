@@ -37,7 +37,7 @@ while play_game:
         print("Here are your available letters: " + current_alphabet)
         # print(current_alphabet)
 
-        print("\n" + selected_word) #debug
+        # print("\n" + selected_word) #debug
         print("\nThe word to guess is: " + shown_word + "\tRemaining lives: " + str(lives) + "")
 
         input_choice = input("Choose a letter: ")
@@ -45,12 +45,13 @@ while play_game:
         
         print("------------------------------------------------")
 
-        try:
+        try: #try to remove a letter from the alphabet
             alphabet.remove(input_choice)
         except:
             print("Not available letter!")
             continue
 
+        #update shown word, remove some ?, if needed, and replace them with input_choice
         indexs_of_letters = []
         if input_choice in selected_word:
             for letter in range(len(selected_word)):
@@ -63,7 +64,4 @@ while play_game:
     else:
         if(input("\nPlay again? [y/n]: ") == 'n'):
             play_game=False
-
-#Delete used words in list_of_words
-#Guess the word with an entire input word
-#Hangman art
+f.close()
