@@ -1,5 +1,6 @@
 import random
 import string
+import os
 
 def game_condition(temp_word: string, lives: int) -> bool:
     if selected_word == temp_word:
@@ -13,6 +14,7 @@ def game_condition(temp_word: string, lives: int) -> bool:
 play_game = True
 
 while play_game:
+    os.system('cls')
     lives = 7
     alphabet = list(string.ascii_lowercase) 
     f = open('list_of_words.txt', "r") #list of all words
