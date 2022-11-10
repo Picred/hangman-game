@@ -3,23 +3,26 @@ import string
 import os
 
 def game_condition(temp_word: string, lives: int, selected_word: string) -> bool:
+    
     if selected_word == temp_word:
         print("You won, you guessed the word!")
         return False
+
     elif lives==0:
         print("Game over! You lost all lives!")
         return False
+        
     return True
 
 
 def main(play_game: bool) -> None:
+
     while play_game:
         os.system('cls')
         lives = 7
         alphabet = list(string.ascii_lowercase) 
         f = open('list_of_words.txt', "r") #list of all words
         words = f.readlines()
-
 
         _selected_word = words[random.randint(0,len(words)-1)]
 
@@ -37,13 +40,10 @@ def main(play_game: bool) -> None:
                 current_alphabet+= i + " "
 
             print("Here are your available letters: " + current_alphabet)
-            # print(current_alphabet)
 
-            # print("\n" + selected_word) #debug
             print("\nThe word to guess is: " + shown_word + "\tRemaining lives: " + str(lives) + "")
 
             input_choice = input("Choose a letter: ")
-
 
             print("------------------------------------------------")
 
@@ -66,6 +66,7 @@ def main(play_game: bool) -> None:
         else:
             if(input("\nPlay again? [y/n]: ") == 'n'):
                 play_game=False
+
     f.close()
 
 if __name__ == "__main__":
