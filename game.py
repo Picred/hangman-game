@@ -2,7 +2,7 @@ import random
 import string
 import os
 
-def game_condition(temp_word: string, lives: int) -> bool:
+def game_condition(temp_word: string, lives: int, selected_word: string) -> bool:
     if selected_word == temp_word:
         print("You won, you guessed the word!")
         return False
@@ -11,9 +11,8 @@ def game_condition(temp_word: string, lives: int) -> bool:
         return False
     return True
 
-play_game = True
 
-def main() -> None:
+def main(play_game: bool) -> None:
     while play_game:
         os.system('cls')
         lives = 7
@@ -24,14 +23,14 @@ def main() -> None:
 
         _selected_word = words[random.randint(0,len(words)-1)]
 
-        selected_word=_selected_word.replace("\n","") #word to guess
+        selected_word = _selected_word.replace("\n","") #word to guess
 
         shown_word = ""
 
         for i in selected_word:
             shown_word+='?'
 
-        while game_condition(shown_word, lives):
+        while game_condition(shown_word, lives,selected_word):
 
             current_alphabet = ""
             for i in alphabet:
@@ -70,4 +69,4 @@ def main() -> None:
     f.close()
 
 if __name__ == "__main__":
-    main()
+    main(play_game = True)
