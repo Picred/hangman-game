@@ -19,7 +19,7 @@ def game_condition(temp_word: string, lives: int, selected_word: string) -> bool
 def main(play_game: bool) -> None:
 
     while play_game:
-        lives = 7
+        lives = 10
         alphabet = list(string.ascii_lowercase) 
         f = open('list_of_words.txt', "r") #list of all words
         words = f.readlines()
